@@ -9,7 +9,7 @@ class Solution:
                 count += 1
                 self.dfs(i,visited,adj,V)
         return count
-    
+
     def dfs(self,u,visited,adj,V):
         visited[u] = 1
         for i in range(V):
@@ -26,11 +26,11 @@ if __name__ == '__main__':
     for _ in range (t):
         V=int(input())
         adj=[]
-        
+
         for i in range(V):
             temp = list(map(int,input().split()))
             adj.append(temp);
-        
+
         ob = Solution()
         print(ob.numProvinces(adj,V))
 # } Driver Code Ends
