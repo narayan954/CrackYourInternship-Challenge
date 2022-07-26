@@ -1,31 +1,30 @@
-def solve(arr,n):
+def solve(arr, n):
     temp = sorted(arr)
-    l=r=0
+    l = r = 0
     mark = set()
-    while r<n:
-        while l<n and temp[r]!=arr[l]:
-            l+=1
-        if l==n:
+    while r < n:
+        while l < n and temp[r] != arr[l]:
+            l += 1
+        if l == n:
             break
         mark.add(l)
-        l+=1
-        r+=1
-    if r==n:
+        l += 1
+        r += 1
+    if r == n:
         return True
-    l=0
-    while r<n:
+    l = 0
+    while r < n:
         if l in mark:
-            l+=1
+            l += 1
             continue
-        if temp[r]!=arr[l]:
+        if temp[r] != arr[l]:
             return False
-        l+=1
-        r+=1
+        l += 1
+        r += 1
     return True
-
 
 
 for _ in range(int(input())):
     n = int(input())
-    ls = list(map(int,input().split()))
-    print("YES" if solve(ls,n) else "NO")
+    ls = list(map(int, input().split()))
+    print("YES" if solve(ls, n) else "NO")
