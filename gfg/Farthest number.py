@@ -18,7 +18,7 @@ class Solution:
 class IntArray:
 
     def __init__(self) -> None:
-        pass
+        raise NotImplementedError()
 
     @staticmethod
     def Input(n):
