@@ -6,29 +6,41 @@ using namespace std;
 
 class Solution
 {
-    vector<vector<int>> dp = decltype(dp)(202, vector<int>(202, -1));
     public:
-    
-    int eggDrop(int egg, int flr)   
-    // FIND THE BEST OF WORSTS CASES
-    {
-        if(egg==0) return INT_MAX;
-        if(egg==1) return flr;
-        if(flr==1 || flr==0) return flr;
-    
-        if(dp[egg][flr] != -1)
-            return dp[egg][flr];
+    int solve(int k, int n,vector<vector<int>>&dp){
+        if(k==0) return INT_MAX;
+        if(k==1) return n;
+        if(n==1 || n==0) return n;
+        if(dp[k][n]!=-1) return dp[k][n];
         
-        int mini = INT_MAX;
-        for(int f = 1; f <=flr; f++){
-            // choices of floors
-            
-            // min of worsts cases
-            mini = min(mini, max(eggDrop(egg-1, f-1), //  egg will break
-            eggDrop(egg, flr-f))); // will survive
+//         int ans = INT_MAX;
+//         for(int i=1;i<=n;i++){
+//             ans = min(ans,max(solve(k-1,i-1,dp),solve(k,n-i,dp)));
+//         }
+        
+//         return dp[k][n] = ans+1;
+//     }
+        int mn = INT_MAX;
+        int l = 1;
+        int r = n;
+        while(l<=r){
+            int mid = l+ (r-l) /2;
+            int left = solve(k-1,mid-1,dp);
+            int right = solve(k,n-mid,dp);
+            int temp = 1 + max(left,right);
+            if (left<right)  
+                l=mid+1;
+            else
+                r=mid-1;
+            mn = min(mn,temp);
+   
         }
-        
-        return dp[egg][flr] = mini+1; 
+        return dp[k][n] = mn;
+    }
+    
+    int eggDrop(int egg, int flr){
+        vector<vector<int>>dp(egg+1,vector<int>(flr+1,-1));
+        return solve(egg,flr,dp); 
     }
 };
 
