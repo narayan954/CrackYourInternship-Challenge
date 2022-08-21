@@ -6,7 +6,9 @@ from re import compile, match
 #
 # Write the regular expression in the blank space below
 #
-regularExpression = r'^[a-z]$|^([a-z]).*\1$'   # Checks if string starts and ends with same character
+regularExpression = (
+    # Checks if string starts and ends with same character
+    r"^[a-z]$|^([a-z]).*\1$")
 
 pattern = compile(regularExpression)
 
