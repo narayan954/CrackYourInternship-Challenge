@@ -12,13 +12,12 @@ public:
     vector<int> leftSmaller(int n, int a[]){
         // code here
         vector<int> ans(n,-1);
-        for(int i=n-1;i>-1;i--){
-            for(int x=i-1;x>-1;x--){
-                if(a[x]<a[i]){
-                    ans[i]=a[x];
-                    break;
-                }
-            }
+        stack<int> st;
+        st.push(-1);
+        for(int i=0;i<n;i++){
+            while(st.size()>1 && st.top()>=a[i]) st.pop();
+            ans[i]=st.top();
+            st.push(a[i]);
         }
         return ans;
     }
