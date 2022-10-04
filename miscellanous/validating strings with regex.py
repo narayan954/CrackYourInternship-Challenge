@@ -1,7 +1,7 @@
 #!/bin/python3
 
 from os import environ
-from re import compile, match
+from re import compile
 
 #
 # Write the regular expression in the blank space below

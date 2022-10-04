@@ -3,7 +3,6 @@
 import atexit
 import io
 import sys
-from collections import defaultdict
 
 
 class Solution:
