@@ -9,19 +9,14 @@ using namespace std;
 class Solution {
   public:
     int countOfSubstrings(string s, int k) {
-        // code here
         unordered_map<char,int>mp;
         int i=0,count=0,n=s.length();
-        while(i<k){
-            mp[s[i]]++;
-            i++;
-        }
+        while(i<k) mp[s[i++]]++;
         while(i<n){
             if(mp.size()==k-1)count++;
             mp[s[i-k]]--;
             if(mp[s[i-k]]==0)mp.erase(s[i-k]);
-            mp[s[i]]++;
-            i++;
+            mp[s[i++]]++;
         }
         if(mp.size()==k-1)count++;
         return count;
