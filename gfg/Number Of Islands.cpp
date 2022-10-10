@@ -9,9 +9,7 @@ using namespace std;
 class Solution {
   public:
     void dfs(int i, int j,vector<vector<bool>> &world, vector<vector<bool>> &vis, int n,int m){
-        if(i<0 or i>=n or j<0 or j>=m) return;
-        if(vis[i][j]) return;
-        if(!world[i][j]) return;
+        if(i<0 or i>=n or j<0 or j>=m or vis[i][j] or !world[i][j]) return;
         
         vis[i][j]=true;
         
