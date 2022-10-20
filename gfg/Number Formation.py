@@ -9,8 +9,7 @@ class Solution:
 	    for i in range(1, X+Y+Z+1):
 	        fact.append((fact[-1]*i)%MOD)
 	        ones.append((ones[-1]*10 + 1)%MOD)
-       
-        res = 0 
+		res = 0 
         for i in range(X+1):
             for j in range(Y+1):
                 for k in range(Z+1):
