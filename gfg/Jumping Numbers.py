@@ -1,32 +1,34 @@
-#User function Template for python3
+# User function Template for python3
+
 
 class Solution:
+
     def jumpingNums(self, X):
-        # code here 
+        # code here
         q = list(range(1, 10))
-        ans = float('-inf')
+        ans = float("-inf")
         while q:
             x = q.pop()
             if x > X:
                 continue
             ans = max(ans, x)
-            d = x%10
+            d = x % 10
             if d != 9:
-                q.append(x*10+d+1)
+                q.append(x * 10 + d + 1)
             if d != 0:
-                q.append(x*10+d-1)
+                q.append(x * 10 + d - 1)
         return ans
 
 
-#{ 
- # Driver Code Starts
-#Initial Template for Python 3
+# {
+# Driver Code Starts
+# Initial Template for Python 3
 
-if __name__ == '__main__': 
-    t = int (input ())
-    for _ in range (t):
-        X=int(input())
-        
+if __name__ == "__main__":
+    t = int(input())
+    for _ in range(t):
+        X = int(input())
+
         ob = Solution()
         print(ob.jumpingNums(X))
 # } Driver Code Ends
